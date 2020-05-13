@@ -1,0 +1,35 @@
+﻿
+@model List<Administrador>
+@{
+    ViewBag.Title = "Admin";
+}
+
+<h2>Administradores</h2>
+
+<table>
+    <thead>
+        <tr>
+            <td>IdAdmin</td>
+            <td>Nombre</td>
+            @*<td>Apeliido</td>
+                <td>Telefono</td>
+                <td>Correo</td>
+                <td>IdRol</td>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var admin in Model)
+        {
+            <tr>
+                <td>@admin.IdAdmin</td>
+                <td>@admin.Nombre</td>
+                @* <td>@admin.Apeliido</td>
+                    <td>@admin.Telefono</td>
+                    <td>@admin.Correo</td>
+                    <td>@admin.IdRol</td>*@
+            </tr>
+        }
+    </tbody>
+
+</table>
+
