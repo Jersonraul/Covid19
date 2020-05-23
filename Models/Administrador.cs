@@ -10,7 +10,6 @@ namespace APPCOVID.Models
     {
        
         public int IdAdmin { get; set; }
-
         
         public string Nombre { get; set; }
 
