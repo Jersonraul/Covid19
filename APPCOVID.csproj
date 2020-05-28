@@ -155,7 +155,6 @@
     </Compile>
     <Compile Include="Models\Administrador.cs" />
     <Compile Include="Models\Sintoma.cs" />
-    <Compile Include="Models\SintomaResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

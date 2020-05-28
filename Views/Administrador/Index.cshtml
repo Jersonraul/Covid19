@@ -1,35 +1,29 @@
-﻿
-@model List<Administrador>
-@{
-    ViewBag.Title = "Admin";
-}
+﻿@model APPCOVID.Models.Administrador
 
-<h2>Administradores</h2>
 
-<table>
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+
     <thead>
         <tr>
-            <td>IdAdmin</td>
-            <td>Nombre</td>
-            @*<td>Apeliido</td>
-                <td>Telefono</td>
-                <td>Correo</td>
-                <td>IdRol</td>*@
+        <td>ID</td>
+        <td>DESCRIPCION</td>
         </tr>
+
     </thead>
+
     <tbody>
-        @foreach (var admin in Model)
+
+        @foreach (var item in ViewBag.sintomass)
         {
             <tr>
-                <td>@admin.IdAdmin</td>
-                <td>@admin.Nombre</td>
-                @* <td>@admin.Apeliido</td>
-                    <td>@admin.Telefono</td>
-                    <td>@admin.Correo</td>
-                    <td>@admin.IdRol</td>*@
+                <td>@item.symptom_id</td>
+
+                <td>@item.symptom_description</td>
+
             </tr>
         }
     </tbody>
-
 </table>
-
