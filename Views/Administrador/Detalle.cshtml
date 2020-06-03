@@ -1,0 +1,23 @@
+﻿@model APPCOVID.Models.Sintoma
+
+@{
+    ViewBag.Title = "Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalle</h2>
+
+<div class="form-group">
+    <label>CODIGO</label>
+    @Model.symptom_id
+</div>
+
+<div class="form-group">
+    <label>CODIGO</label>
+    @Model.symptom_description
+</div>
+
+<div>
+   
+    <a href="@Url.Action("Index","Administrador")">Regresar</a>
+</div>

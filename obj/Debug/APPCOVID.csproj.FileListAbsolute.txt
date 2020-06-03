@@ -283,3 +283,6 @@ C:\Users\Raul\Documents\SistemaCovid\Covid19\obj\Debug\APPCOVID.csproj.CoreCompi
 C:\Users\Raul\Documents\SistemaCovid\Covid19\obj\Debug\APPCOVID.csproj.CopyComplete
 C:\Users\Raul\Documents\SistemaCovid\Covid19\obj\Debug\APPCOVID.dll
 C:\Users\Raul\Documents\SistemaCovid\Covid19\obj\Debug\APPCOVID.pdb
+C:\Users\Raul\Documents\SistemaCovid\Covid19\bin\System.Net.Http.Extensions.dll
+C:\Users\Raul\Documents\SistemaCovid\Covid19\bin\System.Net.Http.Formatting.dll
+C:\Users\Raul\Documents\SistemaCovid\Covid19\bin\System.Net.Http.Primitives.dll

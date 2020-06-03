@@ -11,7 +11,7 @@ namespace APPCOVID.Models
         [JsonProperty("symptom_id")]
         public int symptom_id { get; set; }
         [JsonProperty("symptom_description")]
-        public String symptom_description { get; set; }
+        public string symptom_description { get; set; }
     }
 
          public class SintomaResponse

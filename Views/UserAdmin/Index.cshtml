@@ -1,0 +1,32 @@
+﻿@model APPCOVID.Models.UserAdmin
+
+
+
+    <h2>LOGIN COVID-19</h2>
+
+<form method="post" action="@Url.Action("Index","UserAdmin")">
+    <div class="form-group">
+        <label>Id</label>
+        @Html.TextBoxFor(x => x.id_user, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Nombre</label>
+        @Html.TextBoxFor(x => x.nombre, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Apellido</label>
+        @Html.TextBoxFor(x => x.apellido, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        @Html.TextBoxFor(x => x.email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Sexo</label>
+        @Html.TextBoxFor(x => x.sexo, new { @class = "form-control" })
+    </div>
+    <div>
+        <input type="submit" class="btn btn-success" value="Enviar" />
+     
+    </div>
+</form>

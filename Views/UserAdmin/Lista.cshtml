@@ -1,0 +1,45 @@
+﻿@model APPCOVID.Models.UserAdmin
+
+    <h2>
+        <a href="@Url.Action("Index","UserAdmin")" class="btn btn-primary right">Nuevo</a>
+        Index
+    </h2>
+
+    <table class="table table-bordered">
+
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>NOMBRE</td>
+                <td>APELLIDO</td>
+                <td>EMAIL</td>
+                <td>SEXO</td>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in ViewBag.sintomass)
+            {
+            <tr>
+                <td>@item.id_user</td>
+
+                <td>@item.nombre</td>
+
+                <td>@item.apellido</td>
+
+                <td>@item.email</td>
+
+                <td>@item.sexo</td>
+
+
+                <td>
+                    <a href="@Url.Action("Actualizar","Administrador" ,new {id=item.symptom_id })" class="btn btn-success right">Actualizar</a>
+                    <a href="@Url.Action("Eliminar","Administrador" ,new {id=item.symptom_id })" class="btn btn-danger right">Eliminar</a>
+                    <a href="@Url.Action("Detalle","Administrador" ,new {id=item.symptom_id })" class="btn btn-default right">Ver Detalle</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

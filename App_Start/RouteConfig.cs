@@ -16,7 +16,7 @@ namespace APPCOVID
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Administrador", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Administrador", action = "Login", id = UrlParameter.Optional }
             );
         }
     }
