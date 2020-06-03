@@ -1,4 +1,4 @@
-﻿@model APPCOVID.Models.UserAdmin
+﻿@model APPCOVID.Models.Admin
 
 
 
@@ -6,14 +6,14 @@
 
 <form method="post" action="@Url.Action("Index","UserAdmin")">
     <div class="form-group">
-        <label>Id</label>
-        @Html.TextBoxFor(x => x.id_user, new { @class = "form-control" })
+        <label>Correo</label>
+        @Html.TextBoxFor(x => x.email, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <label>Nombre</label>
-        @Html.TextBoxFor(x => x.nombre, new { @class = "form-control" })
+        <label>Clave</label>
+        @Html.TextBoxFor(x => x.password, new { @class = "form-control" })
     </div>
-    <div class="form-group">
+   @* <div class="form-group">
         <label>Apellido</label>
         @Html.TextBoxFor(x => x.apellido, new { @class = "form-control" })
     </div>
@@ -24,7 +24,7 @@
     <div class="form-group">
         <label>Sexo</label>
         @Html.TextBoxFor(x => x.sexo, new { @class = "form-control" })
-    </div>
+    </div>*@
     <div>
         <input type="submit" class="btn btn-success" value="Enviar" />
      

@@ -55,7 +55,7 @@ namespace APPCOVID.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(UserAdmin user)
+        public ActionResult Index(Admin user)
         {
             HttpClient clienteHttp = new HttpClient();
             clienteHttp.BaseAddress = new Uri("https://covid19-pit.herokuapp.com/api/v1.0/");
@@ -65,12 +65,26 @@ namespace APPCOVID.Controllers
             var response = request.Result;
 
             var resultString = response.Content.ReadAsStringAsync().Result;
-            var registro = JsonConvert.DeserializeObject<UserAdminResponse>(resultString);
-            if (registro != null)
+            var registro = JsonConvert.DeserializeObject<AdminResponse>(resultString);
+
+            List<Admin> listaAdmin = new List<Admin>();
+            foreach (var item in registro.Admins)
             {
-                return RedirectToAction("Index");
+                Admin obj = new Admin()
+                {
+                    email = item.email,
+                    password = item.password,
+                   
+                    
+                };
+                listaAdmin.Add(obj);
             }
-            return View(user);
+
+            ViewBag.sintomass = listaAdmin;
+
+            return View(listaAdmin);
+
+           
         }
     }
 }

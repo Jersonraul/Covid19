@@ -31,4 +31,22 @@ namespace APPCOVID.Models
         [JsonProperty("UserAdmins")]
         public List<UserAdmin> UserAdmins { get; set; }
     }
+
+    public class Admin
+    {
+
+        [JsonProperty("email")]
+        public string email { get; set; }
+
+        [JsonProperty("password")]
+        public string password { get; set; }
+
+       
+    }
+
+    public class AdminResponse
+    {
+        [JsonProperty("Admins")]
+        public List<Admin> Admins { get; set; }
+    }
 }
