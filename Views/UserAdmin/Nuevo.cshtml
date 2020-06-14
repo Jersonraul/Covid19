@@ -1,0 +1,61 @@
+﻿
+@model APPCOVID.Models.AdminSignup
+
+@{
+    ViewBag.Title = "Nuevo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Registro Usuarios</h2>
+
+<form method="post" action="@Url.Action("Nuevo","UserAdmin")">
+    <div class="form-group">
+        <label>Nombre</label>
+        @Html.TextBoxFor(x => x.name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Apellido</label>
+        @Html.TextBoxFor(x => x.lastname, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        @Html.TextBoxFor(x => x.email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Contraseña</label>
+        @Html.TextBoxFor(x => x.password, new { @class = "form-control" })
+    </div>
+
+   
+        <div class="row">
+            <div class="col-xs-12 col-md-3">
+                <div class="form-group">
+                    <label for="">Documento</label>
+                    <div class="input-group">
+                        @Html.DropDownListFor(M => M.doctype, new SelectList(Model.Tipos, "Value", "Text","TIPO"), new {  @class="form-control", @style="width:120px;" })
+                        <span class="input-group-addon">-</span>
+                        @Html.TextBoxFor(x => x.docnumber, new {placeholder = "Nro", @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+
+    @* <div class="form-group">
+        <label>Documento</label>
+         @Html.TextBoxFor(x => x.doctype, new { @class = "form-control" })
+    @Html.DropDownListFor(M => M.doctype, new SelectList(Model.Tipos, "Value", "Text"), new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Nro de documento</label>
+        @Html.TextBoxFor(x => x.docnumber, new { @class = "form-control" })
+    </div>*@
+    <div class="form-group">
+        <label>Sexo</label>
+        @Html.TextBoxFor(x => x.sex, new { @class = "form-control" })
+    </div>
+    <div>
+        <input type="submit" class="btn btn-success" value="Enviar" />
+        <a href="@Url.Action("Index","Administrador")">Regresar</a>
+    </div>
+</form>

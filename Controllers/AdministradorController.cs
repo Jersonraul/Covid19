@@ -14,14 +14,17 @@ namespace APPCOVID.Controllers
 {
     public class AdministradorController : Controller
     {
+
+        public string token= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGNpYmVyY292aWQuY29tIiwiaWF0IjoxNTkxNzU0NDYwfQ.tiak0y9aNSzlqrD7zauyfpXnInaNq1axqU8sjgriuY0";
         // GET: Administrador
         public ActionResult Index()
         {
 
             HttpClient clienteHttp = new HttpClient();
             clienteHttp.BaseAddress = new Uri("https://covid19-pit.herokuapp.com/");
+            //clienteHttp.DefaultRequestHeaders.Add("x-access-token",token); 
 
-            var request = clienteHttp.GetAsync("api/symptom");
+            var request = clienteHttp.GetAsync("api/v1.0/symptom");
             request.Wait();
             var response = request.Result;
 
@@ -40,15 +43,7 @@ namespace APPCOVID.Controllers
             }
 
             ViewBag.sintomass = listaSintoma;
-
-            
-
             return View();
-
-
-
-
-
 
         }
 

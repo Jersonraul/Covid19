@@ -1,0 +1,33 @@
+﻿.mod
+    {
+
+        background-color: #F5DA81;
+  
+    } 
+/*.moda
+    {
+
+        background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
+  
+    }*/
+
+.moda{
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -40px;
+  bottom: -40px;
+  width: auto;
+  height: auto;
+  background-image: url(https://www.plataformalac.org/wp-content/uploads/2020/04/covid-19-1000x320.jpg);
+  background-size: cover;
+  /*-webkit-filter: blur(5px);
+  z-index: 0;*/
+}
+.teet {
+    text-decoration-style: solid;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    color:white;
+}

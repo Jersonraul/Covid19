@@ -18,18 +18,39 @@ namespace APPCOVID.Models
         [JsonProperty("apellido")]
         public string apellido { get; set; }
 
+        [JsonProperty("doc_tipo")]
+        public string doc_tipo { get; set; }
+
+        [JsonProperty("num_doc")]
+        public int num_doc { get; set; }
+
         [JsonProperty("email")]
         public string email { get; set; }
 
         [JsonProperty("sexo")]
         public string sexo { get; set; }
 
+        [JsonProperty("fecha_registro")]
+        public string fecha_registro { get; set; }
+
+        [JsonProperty("fecha_nac")]
+        public string fecha_nac { get; set; }
+
+        [JsonProperty("direccion")]
+        public string direccion { get; set; }
+
     }
 
     public class UserAdminResponse
     {
-        [JsonProperty("UserAdmins")]
-        public List<UserAdmin> UserAdmins { get; set; }
+        [JsonProperty("users")]
+        public List<UserAdmin> users { get; set; }
+    }
+
+    public class UserAdminResponseXId
+    {
+        [JsonProperty("usuario")]
+        public List<UserAdmin> usuario { get; set; }
     }
 
     public class Admin

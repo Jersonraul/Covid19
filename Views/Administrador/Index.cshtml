@@ -28,7 +28,7 @@
                 <td>@item.symptom_description</td>
                 <td>
                     <a href="@Url.Action("Actualizar","Administrador" ,new {id=item.symptom_id })" class="btn btn-success right">Actualizar</a>
-                    <a href="@Url.Action("Eliminar","Administrador" ,new {id=item.symptom_id })" class="btn btn-danger right">Eliminar</a>
+                   @* <a href="@Url.Action("Eliminar","Administrador" ,new {id=item.symptom_id })" class="btn btn-danger right">Eliminar</a>*@
                     <a href="@Url.Action("Detalle","Administrador" ,new {id=item.symptom_id })" class="btn btn-default right">Ver Detalle</a>
                 </td>
             </tr>
