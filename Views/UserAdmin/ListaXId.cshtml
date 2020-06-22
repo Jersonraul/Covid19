@@ -1,0 +1,73 @@
+﻿@model APPCOVID.Models.UserAdmin
+
+<h2>
+    <a href="@Url.Action("Nuevo","UserAdmin")" class="btn btn-primary right">Nuevo</a>
+    LISTADO USUARIOS
+</h2>
+
+
+
+<form method="post" action="@Url.Action("ListaXId","UserAdmin")">
+
+    <div class="row">
+        <div class="col-xs-12 col-md-3">
+            <div class="form-group">
+                <label for="">Codigo de usuario</label>
+                <div class="input-group">
+                    @Html.TextBoxFor(x => x.id_user, new { @name = "id_user", @value = "@ViewBag.id", @class = "form-control" })
+                    <span class="input-group-addon">-</span>
+                    <input type="submit" value="Consultar" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-bordered">
+
+
+        <thead class="text">
+            <tr>
+
+                <td>NOMBRE</td>
+                <td>APELLIDO</td>
+                <td>DOCUMENTO</td>
+                <td>NUMERO</td>
+                <td>EMAIL</td>
+                <td>SEXO</td>
+                <td>FECHA DE REGISTRO</td>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in ViewBag.listaporcampo)
+            {
+                <tr>
+
+
+                    <td>@item.nombre</td>
+
+                    <td>@item.apellido</td>
+
+                    <td>@item.doc_tipo</td>
+
+                    <td>@item.num_doc</td>
+
+                    <td>@item.email</td>
+
+                    <td>@item.sexo</td>
+
+                    <td>@item.fecha_registro</td>
+
+
+                    <td>
+                        <a href="@Url.Action("Actualizar", "UserAdmin", new { id = item.id_user })" class="btn btn-success right">Editar</a>
+                        @*  <a href="@Url.Action("Eliminar","Administrador" ,new {id=item.id_user })" class="btn btn-danger right">Eliminar</a>*@
+                        <a href="@Url.Action("Detalle", "UserAdmin", new { id = item.id_user })" class="btn btn-default right">Ver Detalle</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>

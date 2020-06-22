@@ -1,18 +1,36 @@
-﻿@model APPCOVID.Models.Admin
+﻿@model APPCOVID.Models.Adminm
+
+ }
+<head>
+    <h2>LOGIN COVID-19</h2>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+    .
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
 
-
-<h2>LOGIN COVID-19</h2>
+</head>
 
 <form method="post" action="@Url.Action("Index","UserAdmin")">
-    <div class="form-group">
+    <div class="form-group" style="width:300px">
         <label>EMAIL</label>
-        @Html.TextBoxFor(x => x.email, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
     </div>
-    <div class="form-group">
+    <div class="form-group" style="width:300px">
         <label>PASSWORD</label>
-        @Html.TextBoxFor(x => x.password, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
     </div>
+
+    <div class="">
+        @if (!Html.ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                @Html.ValidationMessage("CustomError")
+            </div>
+
+        }
+    </div>
+
     @*<div class="form-group">
             <label>Apellido</label>
             @Html.TextBoxFor(x => x.apellido, new { @class = "form-control" })
@@ -25,8 +43,8 @@
             <label>Sexo</label>
             @Html.TextBoxFor(x => x.sexo, new { @class = "form-control" })
         </div>*@
-<div>
-    <input type="submit" class="btn btn-success" value="Enviar" />
-    <a 
-</div>
+    <div>
+        <input type="submit" class="btn btn-success" value="Iniciar sesion" />
+        <a
+    </div>
 </form>

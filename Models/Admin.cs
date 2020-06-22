@@ -7,25 +7,26 @@ using System.Web;
 
 namespace APPCOVID.Models
 {
-    public class Admin
+    public class Adminm
     {
         [Required]
         [EmailAddress]
         [StringLength(150)]
-        [Display(Name ="Email")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [StringLength(20,MinimumLength =6)]
+        [StringLength(20, MinimumLength = 6)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
 
-    }
-    public class AdminResponse
-    {
-        [JsonProperty("admins")]
-        public List<Admin> sintomas { get; set; }
+        //}
+        //public class AdminResponsee
+        //{
+        //    [JsonProperty("admins")]
+        //    public List<Admin> sintomas { get; set; }
+        //}
     }
 }

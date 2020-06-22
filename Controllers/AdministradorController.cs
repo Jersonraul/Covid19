@@ -149,6 +149,8 @@ namespace APPCOVID.Controllers
 
             return View(informacion);
         }
+
+
         public ActionResult Login()
         {
 

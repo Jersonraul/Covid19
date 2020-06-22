@@ -18,67 +18,67 @@ namespace APPCOVID.Controllers
             return View();
         }
 
-        //[HttpGet]
-        //public ActionResult LogIn()
-        //{
-        //    return View();
-        //}
-        //[HttpPost]
-        //public ActionResult LogIn(Admin admin)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        if (Isvalid(admin.Email, admin.Password))
-        //        {
-        //            FormsAuthentication.SetAuthCookie(admin.Email, false);
-        //            return RedirectToAction("Index", "Home");
-        //        }
-        //        else
-        //        {
-        //            ModelState.AddModelError("","Datos Incorrectos");
-        //        }
-        //    }
-        //    return View(admin);
-        //}
+        [HttpGet]
+        public ActionResult LogIn()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult LogIn(Adminm admin)
+        {
+            if (ModelState.IsValid)
+            {
+                if (Isvalid(admin.Email, admin.Password))
+                {
+                    FormsAuthentication.SetAuthCookie(admin.Email, false);
+                    return RedirectToAction("Lista", "UserAdmin");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Datos Incorrectos");
+                }
+            }
+            return View(admin);
+        }
 
-        //public ActionResult LogOut()
-        //{
-        //    FormsAuthentication.SignOut();
-        //    return RedirectToAction("Index","Home");
-        //}
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
 
-        //private bool Isvalid(string Email, string password)
-        //{
-        //    HttpClient clienteHttp = new HttpClient();
-        //    clienteHttp.BaseAddress = new Uri("https://covid19-pit.herokuapp.com/");
+        private bool Isvalid(string Email, string password)
+        {
+            HttpClient clienteHttp = new HttpClient();
+            clienteHttp.BaseAddress = new Uri("https://covid19-pit.herokuapp.com/");
 
-        //    var request = clienteHttp.GetAsync("api/v1.0/admin/signin");
-        //    request.Wait();
-        //    var response = request.Result;
+            var request = clienteHttp.GetAsync("api/v1.0/admin/signin");
+            request.Wait();
+            var response = request.Result;
 
-        //    var resultString = response.Content.ReadAsStringAsync().Result;
-        //    var listado = JsonConvert.DeserializeObject<AdminResponse>(resultString);
+            var resultString = response.Content.ReadAsStringAsync().Result;
+            var listado = JsonConvert.DeserializeObject<AdminResponse>(resultString);
 
-        //    //////////////////
+            //////////////////
 
-        //    bool Isvalid = false;
-        //   // using (var db = new MainDbContext())
-        //    {
-        //        //  var user = db.SystemUsers.FirstOrDefault(u => u.Email == Email); //consultar el primer registro con los el email del usuario
-        //        var user = "admin@cibercovid.com";
-        //        var pass = "cibercovid123";
+            bool Isvalid = false;
+            // using (var db = new MainDbContext())
+            {
+                //  var user = db.SystemUsers.FirstOrDefault(u => u.Email == Email); //consultar el primer registro con los el email del usuario
+                var user = "admin@cibercovid.com";
+                var pass = "cibercovid123";
 
-        //        user.Equals(Email);
-        //        if (user != null)
-        //        {
-        //            if (pass == password) //Verificar password del usuario
-        //            {
-        //                Isvalid = true;
-        //            }
-        //        }
-        //    }
-        //    return Isvalid;
-        //}
+                user.Equals(Email);
+                if (user != null)
+                {
+                    if (pass == password) //Verificar password del usuario
+                    {
+                        Isvalid = true;
+                    }
+                }
+            }
+            return Isvalid;
+        }
         //private bool Isvalid(string Email, string password)
         //{
         //    bool Isvalid = false;
@@ -94,7 +94,7 @@ namespace APPCOVID.Controllers
         //        }
         //    }
         //    return Isvalid;
-        //}
-    }
+            //}
+        }
 
 }

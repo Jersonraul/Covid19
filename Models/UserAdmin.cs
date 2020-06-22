@@ -3,13 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 
 namespace APPCOVID.Models
 {
     public class UserAdmin
     {
 
-        [JsonProperty("id_user")]
+        [JsonProperty("id_user", NullValueHandling = NullValueHandling.Ignore)]
         public int id_user { get; set; }
 
         [JsonProperty("nombre")]
@@ -70,4 +71,45 @@ namespace APPCOVID.Models
         [JsonProperty("Admins")]
         public List<Admin> Admins { get; set; }
     }
+
+    public static class Authentication
+    {
+        static void SignIn(
+            HttpContextBase context,
+            string emailAddress,
+            bool rememberMe,
+            Admin user = null)
+        {
+            var cookie = FormsAuthentication.GetAuthCookie(
+                emailAddress.ToLower(),
+                rememberMe);
+            var oldTicket = FormsAuthentication.Decrypt(cookie.Value);
+            var newTicket = new FormsAuthenticationTicket(
+                oldTicket.Version,
+                oldTicket.Name,
+                oldTicket.IssueDate,
+                oldTicket.Expiration,
+                oldTicket.IsPersistent,
+                JsonConvert.SerializeObject(user ?? new Admin()));
+
+            cookie.Value = FormsAuthentication.Encrypt(newTicket);
+
+            context.Response.Cookies.Add(cookie);
+        }
+
+        static void SignOut(HttpContextBase context)
+        {
+            FormsAuthentication.SignOut();
+        }
+
+        static Admin GetLoggedInUser()
+        {
+            if (HttpContext.Current.User?.Identity?.Name != null && HttpContext.Current.User?.Identity is FormsIdentity identity)
+                return JsonConvert.DeserializeObject<Admin>(identity.Ticket.UserData);
+
+            return new Admin();
+        }
+    }
+
+
 }
