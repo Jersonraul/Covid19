@@ -1970,6 +1970,7 @@
     <Content Include="vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Views\Triaje\Lista.cshtml" />
     <Content Include="Views\UserAdmin\ListaXId.cshtml" />
+    <Content Include="Views\Triaje\Actualizar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

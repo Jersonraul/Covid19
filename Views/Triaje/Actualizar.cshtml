@@ -1,0 +1,83 @@
+﻿
+@model APPCOVID.Models.TriajeResponseXid
+
+@{
+    ViewBag.Title = "Nuevo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Actualizar Triaje</h2>
+
+<form method="post" action="@Url.Action("Actualizar","Triaje")">
+
+
+    <div class="form-group">
+        <label>Id</label>
+        @Html.TextBoxFor(x => x.triaje.test_id, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form-group">
+        <label>Nombre</label>
+        @Html.TextBoxFor(x => x.triaje.nombre, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form-group">
+        <label>Apellido</label>
+        @Html.TextBoxFor(x => x.triaje.apellido, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form-group">
+        <label>Documento</label>
+        @Html.TextBoxFor(x => x.triaje.doc_type, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form-group">
+        <label>Nro de documento</label>
+        @Html.TextBoxFor(x => x.triaje.doc_number, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form-group">
+        <label>Sexo</label>
+        @Html.TextBoxFor(x => x.triaje.sexo, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form-group">
+        <label>Registro de triaje</label>
+        @Html.TextBoxFor(x => x.triaje.fecha_triaje, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    @*<div class="row">
+        <div class="col-xs-12 col-md-3">
+            <div class="form-group">
+                <label for="">Estado</label>
+                <div class="input-group">
+                    @Html.DropDownListFor(x => x.triaje.estado, new SelectList(Model.Estados, "Value", "Text", "TIPO"), new { @class = "form-control", @style = "width:120px;" })
+                  
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+
+
+    <div class="col-xs-12 col-md-3">
+            <label>Sintomas</label>
+            @if (Model.triaje.sintomas != null)
+            {
+
+                <table style="width:200px">
+
+                    <tbody style="width:200px">
+                        @for (int i = 0; i < Model.triaje.sintomas.Count(); i++)
+                        {
+
+
+                                @Html.EditorFor(m => m.triaje.sintomas[i], new { @class = "form-control", @readonly = "readonly" })
+                        }
+
+                        </tbody>
+                   
+                </table>
+            }
+        </div>
+
+    <div>
+        <input type="submit" class="btn btn-success" value="Actualizar" />
+        <a href="@Url.Action("Lista","Triaje")">Regresar</a>
+    </div>
+</form>

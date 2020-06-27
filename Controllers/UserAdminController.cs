@@ -133,10 +133,11 @@ namespace APPCOVID.Controllers
                 string data = informacion.ToString();
 
 
-
+                List<UserAdmin> lista = new List<UserAdmin>();
                 List<UserAdmin> listaAdmin = new List<UserAdmin>();
+                lista = informacion.usuario;
 
-                if (listaAdmin.Count() > 0)
+                if (lista.Count() > 0)
                 {
                     foreach (var item in informacion.usuario)
                     {
@@ -160,7 +161,7 @@ namespace APPCOVID.Controllers
                     return View();
 
                 }
-                else
+                else if(lista.Count()== 0)
                 {
                     TempData["success"] = "Usuario no encontrado";
                 }
@@ -302,7 +303,7 @@ namespace APPCOVID.Controllers
 
 
         };
-
+           // return View("Nuevo");
             return PartialView("Nuevo", admin);
         }
 

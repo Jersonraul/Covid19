@@ -1,7 +1,7 @@
 ﻿@model APPCOVID.Models.Triaje
 
 <h2>
-    <a href="@Url.Action("Nuevo","Triaje")" class="btn btn-primary right">Nuevo</a>
+   @* <a href="@Url.Action("Nuevo","Triaje")" class="btn btn-primary right">Nuevo</a>*@
     Lista Triajes
 </h2>
 
@@ -11,9 +11,10 @@
         <tr>
             <td>ID</td>
             <td>HORA REGISTRO</td>
-            <td>CIUDADANO</td>
+            <td>CODIGO DE USUARIO</td>
+            <td>NRO DE DOCUMENTO</td>
             <td>ESTADO</td>
-            
+
         </tr>
 
     </thead>
@@ -22,24 +23,26 @@
 
         @foreach (var item in ViewBag.triajes)
         {
-            <tr>
-                <td>@item.test_id</td>
+        <tr>
+            <td>@item.test_id</td>
 
-                <td>@item.hora_registro</td>
+            <td>@item.hora_registro</td>
 
-                <td>@item.ciudadano</td>
+            <td>@item.user_id</td>
 
-                <td>@item.estado</td>
+            <td>@item.doc_number</td>
 
-               
+            <td>@item.estado</td>
 
 
-                <td>
-                    <a href="@Url.Action("Actualizar","Triaje" ,new {id=item.test_id })" class="btn btn-success right">Actualizar</a>
-                    @*  <a href="@Url.Action("Eliminar","Administrador" ,new {id=item.id_user })" class="btn btn-danger right">Eliminar</a>*@
-                    <a href="@Url.Action("Detalle","Triaje" ,new {id=item.test_id })" class="btn btn-default right">Ver Detalle</a>
-                </td>
-            </tr>
+
+
+            <td>
+                <a href="@Url.Action("Actualizar","Triaje" ,new {id=item.test_id })" class="btn btn-success right">Ver Detalle</a>
+                @*  <a href="@Url.Action("Eliminar","Administrador" ,new {id=item.id_user })" class="btn btn-danger right">Eliminar</a>*@
+                <a href="@Url.Action("Detalle","Triaje" ,new {id=item.test_id })" class="btn btn-default right">V</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
